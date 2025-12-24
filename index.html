@@ -46,7 +46,7 @@
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Gestão de Abas */
+        /* Gestão de Visibilidade */
         .tab-content { display: none !important; height: 100%; width: 100%; flex-direction: column; overflow-y: auto; }
         .tab-content.active { display: flex !important; }
         
@@ -64,10 +64,14 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+        /* Estilo para garantir que a foto não corte no topo */
         .profile-img-container {
             position: relative;
             overflow: hidden;
             background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
         .profile-img-container img {
             width: 100%;
@@ -84,7 +88,6 @@
         <i id="menu-icon" data-lucide="menu"></i>
     </button>
 
-    <!-- Main Container -->
     <div class="flex-1 w-full max-w-7xl mx-auto bg-white md:rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden border border-brandMoss/10 relative h-full">
 
         <!-- SIDEBAR -->
@@ -92,7 +95,6 @@
             
             <div class="p-8 text-center md:text-left bg-[#4d572d]">
                 <div class="w-20 h-20 bg-white/10 rounded-full mx-auto md:mx-0 flex items-center justify-center mb-4 border-2 border-brandMustard overflow-hidden relative shadow-lg">
-                    <!-- LOGO SVG AE FONO -->
                     <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="50" r="50" fill="#606C38" />
                         <circle cx="50" cy="50" r="46" stroke="#E09F3E" stroke-width="2" opacity="0.5" />
@@ -130,8 +132,8 @@
             
             <!-- 1. HOME -->
             <section id="tab-home" class="tab-content active p-6 md:p-12 fade-in items-center justify-center">
-                <div class="w-64 h-[350px] md:w-80 md:h-[450px] rounded-3xl mb-6 shadow-2xl border-4 border-brandMustard shrink-0 profile-img-container shadow-xl">
-                    <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" alt="Fono Amanda">
+                <div class="w-64 h-80 md:w-80 md:h-[450px] rounded-3xl mb-6 shadow-2xl border-4 border-brandMustard shrink-0 profile-img-container shadow-xl">
+                    <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" alt="Fga. Amanda Elizabeth Gomes">
                 </div>
                 <span class="bg-brandMustard/20 text-brandMustard px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">Bem-vindos</span>
                 <h1 class="font-serif text-3xl md:text-5xl font-bold text-brandMoss mb-2 leading-tight text-center">Fono Amanda Elizabeth Gomes</h1>
@@ -175,7 +177,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- DIFERENCIAIS LIMPOS -->
                     <h3 class="font-serif text-2xl font-bold text-brandTerra mb-10 text-center border-t border-brandMoss/10 pt-8 uppercase tracking-widest">Diferenciais</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12">
@@ -198,24 +199,22 @@
                 </div>
             </section>
 
-            <!-- 3. CHAT (IA AVANÇADA GEMINI - SESSÃO CONTÍNUA) -->
+            <!-- 3. CHAT -->
             <section id="tab-chat" class="tab-content relative flex-col h-full bg-[#FAFAF5] overflow-hidden">
                 <div id="chat-messages" class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar space-y-4">
                     <!-- Mensagens via JS -->
                 </div>
-                
                 <div id="typing-indicator" class="hidden px-8 py-2 text-xs text-brandMoss italic animate-pulse font-bold flex items-center gap-2">
                     <i data-lucide="bot" size="14"></i> Amanda está a formular uma orientação...
                 </div>
-
                 <div class="bg-white p-4 border-t border-brandMoss/10 shrink-0 shadow-lg z-20">
                     <div class="flex gap-3 relative items-center max-w-3xl mx-auto">
-                        <input type="text" id="chat-input" onkeydown="handleChatEnter(event)" placeholder="Escreva sua dúvida sobre desenvolvimento infantil..." class="w-full bg-brandBeige/50 text-gray-700 rounded-xl pl-5 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-brandTerra/50 transition-all text-sm" />
+                        <input type="text" id="chat-input" onkeydown="handleChatEnter(event)" placeholder="Escreva sua dúvida aqui..." class="w-full bg-brandBeige/50 text-gray-700 rounded-xl pl-5 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-brandTerra/50 transition-all text-sm" />
                         <button id="send-btn" onclick="handleSendMessage()" class="absolute right-2 w-10 h-10 bg-brandTerra rounded-lg flex items-center justify-center text-white hover:bg-[#C45F44] transition-all shadow-md">
                             <i data-lucide="send" size="18"></i>
                         </button>
                     </div>
-                    <p class="text-center text-[10px] text-gray-400 mt-2 font-bold tracking-tight">Este assistente não realiza diagnósticos e não substitui consulta presencial.</p>
+                    <p class="text-center text-[10px] text-gray-400 mt-2 font-bold tracking-tight uppercase">Este assistente não realiza diagnósticos e não substitui consulta.</p>
                 </div>
             </section>
 
@@ -264,17 +263,18 @@
                     </div>
                 </div>
             </section>
-
         </main>
     </div>
 
     <!-- LOGICA E INTEGRAÇÃO GEMINI -->
     <script>
-        const apiKey = ""; // Chave injetada automaticamente pelo ambiente
+        // CHAVE DA API INSERIDA CONFORME SOLICITADO
+        const apiKey = "AIzaSyBn6LHFSTczoFsb6Er0Q7MSSfQc-4fFl2g"; 
+        
         lucide.createIcons();
         
         let chatInitialized = false;
-        let chatHistory = []; // Armazena a memória da conversa para modo contínuo
+        let chatHistory = []; 
 
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -292,8 +292,6 @@
                 setTimeout(() => {
                     const welcomeText = "Olá! Sou o assistente virtual de apoio da **Fga. Amanda Elizabeth Gomes**. Estou aqui para orientar pais e cuidadores de forma simples, acolhedora e responsável sobre o desenvolvimento infantil.\n\nComo posso ajudar hoje?";
                     addMessage(welcomeText, 'bot');
-                    // Adicionamos a mensagem de boas vindas ao histórico para manter o tom
-                    chatHistory.push({ role: "model", parts: [{ text: welcomeText }] });
                     chatInitialized = true;
                 }, 400);
             }
@@ -335,12 +333,12 @@
                         <a href="https://wa.me/5511960808313" target="_blank" class="flex items-center justify-center gap-2 bg-brandMoss text-white py-2 px-4 rounded-lg text-xs font-bold hover:bg-[#4d572d] transition-colors w-full shadow-sm">
                             <i data-lucide="message-circle" size="14"></i> Falar pelo WhatsApp
                         </a>
-                        <p class="text-[9px] text-gray-500 italic">Também é possível agendar uma consulta de avaliação ou orientação parental.</p>
+                        <p class="text-[9px] text-gray-500 italic uppercase">Agende uma consulta ou orientação parental.</p>
                     </div>`;
             }
 
             contentHtml += `
-                        <p class="text-[10px] text-gray-400 mt-2 text-right italic border-t border-gray-100 pt-2">${isBot ? 'Amanda Assistant' : 'Você'}</p>
+                        <p class="text-[10px] text-gray-400 mt-2 text-right italic border-t border-gray-100 pt-2">${isBot ? 'Fga. Amanda Assistant' : 'Você'}</p>
                     </div>
                 </div>`;
             
@@ -351,37 +349,26 @@
         }
 
         async function fetchGeminiResponse(userQuery) {
-            // Este chat funciona em modo de sessão contínua, mantendo contexto e histórico da conversa até o usuário encerrar.
-            const systemPrompt = `Este chat funciona em modo de sessão contínua, mantendo contexto e histórico da conversa até o usuário encerrar.
-            Tu és um assistente virtual de apoio em Fonoaudiologia Infantil, criado para orientar pais e cuidadores em nome da Fga. Amanda Elizabeth Gomes (CRFa 2-19715).
+            const systemPrompt = `Tu és um assistente virtual de apoio em Fonoaudiologia Infantil em nome da Fga. Amanda Elizabeth Gomes (CRFa 2-19715).
             
-            TEU PAPEL:
-            - Ajudar com dúvidas simples e gerais: marcos de fala/linguagem por idade, comunicação no dia a dia, rotinas, brincadeiras e estímulos leves.
-            - Usar vocabulário simples, acolhedor, empático e claro. Evitar termos técnicos.
-            - Teus pilares: singularidade, individualidade, potencialidade, autonomia e resultados.
+            DIRETRIZES DE PERSONA:
+            - Orientar pais e cuidadores de forma simples, acolhedora e responsável.
+            - Vocabulário acessível, sem termos técnicos. Empático e sem julgamentos.
+            - Este chat é uma SESSÃO CONTÍNUA. Nunca reinicies com "Olá" após o início.
+            - GUARDA CONTEXTO: Lembra idades, queixas e informações já ditas.
             
-            DURANTE TODA A INTERAÇÃO:
-            - NUNCA reinicies a conversa com "Olá" novamente após a primeira mensagem. Trata como atendimento contínuo.
-            - GUARDA e UTILIZA informações já mencionadas: idade da criança, queixa principal, contexto familiar, rotina ou dúvidas já respondidas.
-            - NÃO repitas perguntas já respondidas.
-            - Complementa ou aprofunda as orientações a cada nova mensagem.
-            - Se perderes o contexto (ex: idade não clara), pergunta naturalmente: "Só para eu te orientar melhor, você pode me lembrar a idade dele?".
-            - ENCERRAMENTO GRADUAL: Não finalizes de forma abrupta. Deixa espaço para continuidade: "Se quiser, pode me contar um pouco mais sobre como isso acontece no dia a dia."
-
             LIMITES RÍGIDOS:
-            - NÃO realizas diagnósticos.
-            - NÃO substituis avaliação fonoaudiológica.
-            - NÃO prescreves terapias ou técnicas clínicas individualizadas.
+            - NÃO realizas diagnósticos. NÃO substituis avaliação presencial.
+            - NÃO prescreves terapias ou condutas clínicas específicas.
 
-            QUANDO A DÚVIDA FOR COMPLEXA OU CLÍNICA:
-            Se o usuário perguntar sobre Diagnósticos (TEA, TDL, TDAH, Apraxia), atrasos importantes, recusa alimentar severa, regressão de fala ou pedir conduta específica:
-            RESPONDE GENTILMENTE: "Essa é uma dúvida muito importante, mas para responder com responsabilidade é necessário conhecer a criança e a rotina dela. Para isso, o ideal é falar diretamente com a fonoaudióloga. Você pode entrar em contato pelo WhatsApp do site, agendar uma consulta de avaliação ou uma orientação parental, que ajuda bastante nesses casos."
+            DÚVIDAS COMPLEXAS/CLÍNICAS (TEA, Atrasos, Regressão, Diagnósticos):
+            Responde GENTILMENTE: "Essa é uma dúvida muito importante, mas para responder com responsabilidade é necessário conhecer a criança e a rotina dela. Para isso, o ideal é falar diretamente com a fonoaudióloga. Você pode entrar em contato pelo WhatsApp do site, agendar uma consulta de avaliação ou uma orientação parental, que ajuda bastante nesses casos."
             
-            Responde sempre de forma acolhedora, humana e sem promessas de resultados.`;
+            Encerrar gradualmente deixando espaço para continuidade.`;
 
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             
-            // Adicionamos a pergunta atual ao histórico
+            // Lógica de Histórico: Gemini exige que comece por 'user'
             chatHistory.push({ role: "user", parts: [{ text: userQuery }] });
 
             const payload = {
@@ -389,7 +376,7 @@
                 systemInstruction: { parts: [{ text: systemPrompt }] }
             };
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 try {
                     const response = await fetch(url, {
                         method: 'POST',
@@ -401,17 +388,15 @@
                     const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
                     
                     if (text) {
-                        // Guardamos a resposta do modelo no histórico para a próxima volta
                         chatHistory.push({ role: "model", parts: [{ text: text }] });
-                        
-                        const needsContact = text.includes("fonoaudióloga") || text.includes("WhatsApp") || text.includes("agendar") || text.includes("orientação parental");
+                        const needsContact = text.includes("fonoaudióloga") || text.includes("WhatsApp") || text.includes("agendar");
                         return { text, needsContact };
                     }
                 } catch (e) {
-                    await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
+                    await new Promise(r => setTimeout(r, 1000));
                 }
             }
-            return { text: "No momento não consigo conectar ao meu sistema. Por favor, use o WhatsApp para falar diretamente conosco.", needsContact: true };
+            return { text: "No momento não consigo conectar. Por favor, use o WhatsApp do site para falar diretamente conosco.", needsContact: true };
         }
 
         async function handleSendMessage() {
