@@ -64,7 +64,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Estilo para garantir que a foto não corte no topo */
         .profile-img-container {
             position: relative;
             overflow: hidden;
@@ -115,6 +114,7 @@
                     <li><button onclick="switchTab('courses')" id="btn-courses" class="nav-btn w-full flex items-center gap-3 p-3 rounded-xl transition-all text-sm font-medium hover:bg-white/10"><i data-lucide="graduation-cap" size="18"></i> Cursos</button></li>
                     <li><button onclick="switchTab('free')" id="btn-free" class="nav-btn w-full flex items-center gap-3 p-3 rounded-xl transition-all text-sm font-medium hover:bg-white/10"><i data-lucide="download" size="18"></i> Downloads Grátis</button></li>
                     <li><button onclick="switchTab('store')" id="btn-store" class="nav-btn w-full flex items-center gap-3 p-3 rounded-xl transition-all text-sm font-medium hover:bg-white/10"><i data-lucide="shopping-bag" size="18"></i> Loja</button></li>
+                    <li><button onclick="switchTab('contact')" id="btn-contact" class="nav-btn w-full flex items-center gap-3 p-3 rounded-xl transition-all text-sm font-medium hover:bg-white/10"><i data-lucide="mail" size="18"></i> Contato</button></li>
                 </ul>
             </nav>
 
@@ -131,14 +131,14 @@
         <main class="flex-1 bg-[#FAFAF5] relative overflow-hidden flex flex-col h-full w-full">
             
             <!-- 1. HOME -->
-            <section id="tab-home" class="tab-content active p-6 md:p-12 fade-in items-center justify-center">
+            <section id="tab-home" class="tab-content active p-6 md:p-12 fade-in items-center justify-center text-center">
                 <div class="w-64 h-80 md:w-80 md:h-[450px] rounded-3xl mb-6 shadow-2xl border-4 border-brandMustard shrink-0 profile-img-container shadow-xl">
                     <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" alt="Fga. Amanda Elizabeth Gomes">
                 </div>
                 <span class="bg-brandMustard/20 text-brandMustard px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">Bem-vindos</span>
-                <h1 class="font-serif text-3xl md:text-5xl font-bold text-brandMoss mb-2 leading-tight text-center">Fono Amanda Elizabeth Gomes</h1>
-                <p class="text-brandTerra text-base md:text-lg font-medium tracking-wide uppercase mb-6 text-center italic">Fonoaudiologia Humanizada & Conexão Familiar</p>
-                <p class="max-w-2xl text-gray-600 mb-10 leading-relaxed text-sm md:text-base text-center px-4">
+                <h1 class="font-serif text-3xl md:text-5xl font-bold text-brandMoss mb-2 leading-tight">Fono Amanda Elizabeth Gomes</h1>
+                <p class="text-brandTerra text-base md:text-lg font-medium tracking-wide uppercase mb-6 italic">Fonoaudiologia Humanizada & Conexão Familiar</p>
+                <p class="max-w-2xl text-gray-600 mb-10 leading-relaxed text-sm md:text-base px-4">
                     Acolhendo famílias e transformando vidas através da comunicação. Especialista em desenvolvimento infantil, linguagem, TEA e motricidade orofacial.
                 </p>
                 <div class="flex flex-col md:flex-row gap-4 w-full max-w-lg mb-8 px-4">
@@ -175,25 +175,6 @@
                                 <span class="bg-brandCream text-brandMoss px-3 py-1 rounded-lg text-xs font-bold border border-brandMoss/10 shadow-sm">Linguagem</span>
                                 <span class="bg-brandCream text-brandMoss px-3 py-1 rounded-lg text-xs font-bold border border-brandMoss/10 shadow-sm">Motricidade Oral</span>
                             </div>
-                        </div>
-                    </div>
-                    <!-- DIFERENCIAIS LIMPOS -->
-                    <h3 class="font-serif text-2xl font-bold text-brandTerra mb-10 text-center border-t border-brandMoss/10 pt-8 uppercase tracking-widest">Diferenciais</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12">
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="mb-4 text-brandTerra transition-transform duration-300 group-hover:scale-110"><i data-lucide="sparkles" size="44"></i></div>
-                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">5 Pilares</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Foco na singularidade e potencialidade de cada criança.</p>
-                        </div>
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="mb-4 text-brandMustard transition-transform duration-300 group-hover:scale-110"><i data-lucide="heart" size="44"></i></div>
-                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Visão Integral</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Intervenções que vão além do óbvio clínico.</p>
-                        </div>
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="mb-4 text-brandMoss transition-transform duration-300 group-hover:scale-110"><i data-lucide="book-open" size="44"></i></div>
-                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Resultados</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Fonoaudiologia estratégica e aplicável à rotina.</p>
                         </div>
                     </div>
                 </div>
@@ -263,12 +244,79 @@
                     </div>
                 </div>
             </section>
+
+            <!-- 7. CONTATO (COM LINK GOOGLE FORMS) -->
+            <section id="tab-contact" class="tab-content p-6 md:p-12 fade-in overflow-y-auto custom-scrollbar">
+                <div class="max-w-4xl mx-auto w-full">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-brandMoss mb-8 flex items-center gap-3 border-b border-brandMoss/10 pb-4">
+                        <i data-lucide="mail" class="text-brandMustard" size="32"></i> Entre em Contacto
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <!-- Informações de Contacto -->
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed text-lg">Para agendamentos, avaliações ou dúvidas específicas, preencha o meu formulário oficial ou utilize os canais abaixo.</p>
+                            
+                            <div class="space-y-5">
+                                <div class="flex items-center gap-4 text-brandMoss">
+                                    <div class="w-12 h-12 rounded-2xl bg-brandCream flex items-center justify-center text-brandMustard shadow-sm">
+                                        <i data-lucide="phone" size="24"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold uppercase text-gray-400">WhatsApp</p>
+                                        <p class="font-bold text-lg">(11) 9 6080-8313</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 text-brandMoss">
+                                    <div class="w-12 h-12 rounded-2xl bg-brandCream flex items-center justify-center text-brandMustard shadow-sm">
+                                        <i data-lucide="instagram" size="24"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold uppercase text-gray-400">Instagram</p>
+                                        <p class="font-bold text-lg">@amandaelizabethfono</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 text-brandMoss">
+                                    <div class="w-12 h-12 rounded-2xl bg-brandCream flex items-center justify-center text-brandMustard shadow-sm">
+                                        <i data-lucide="map-pin" size="24"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold uppercase text-gray-400">Atendimento</p>
+                                        <p class="font-bold text-lg">Presencial e Online</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card do Formulário Google -->
+                        <div class="bg-white p-8 rounded-[40px] shadow-xl border border-brandMoss/5 flex flex-col items-center text-center justify-center space-y-6 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-brandTerra/5 rounded-full -mr-16 -mt-16"></div>
+                            
+                            <div class="w-20 h-20 bg-brandTerra/10 rounded-full flex items-center justify-center text-brandTerra">
+                                <i data-lucide="file-text" size="40"></i>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-brandMoss mb-2">Formulário de Pré-Avaliação</h3>
+                                <p class="text-gray-500 text-sm">Clique no botão abaixo para preencher as informações necessárias para o primeiro contacto.</p>
+                            </div>
+
+                            <!-- O LINK FOI ADICIONADO AQUI -->
+                            <a href="https://docs.google.com/forms/d/1OFHgg528EcmGGc2YgYrYaJMW8KsUlpxL68GVoJm5x3I/viewform" target="_blank" class="w-full bg-brandTerra text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-[#C45F44] transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-3 transform hover:scale-[1.02]">
+                                Abrir Formulário <i data-lucide="external-link" size="16"></i>
+                            </a>
+                            
+                            <p class="text-[10px] text-gray-400 italic">O formulário será aberto numa nova janela do Google Forms.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </main>
     </div>
 
     <!-- LOGICA E INTEGRAÇÃO GEMINI -->
     <script>
-        // CHAVE DA API INSERIDA CONFORME SOLICITADO
         const apiKey = "AIzaSyBn6LHFSTczoFsb6Er0Q7MSSfQc-4fFl2g"; 
         
         lucide.createIcons();
@@ -368,7 +416,6 @@
 
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             
-            // Lógica de Histórico: Gemini exige que comece por 'user'
             chatHistory.push({ role: "user", parts: [{ text: userQuery }] });
 
             const payload = {
