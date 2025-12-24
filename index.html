@@ -3,80 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <title>Fono Amanda Elizabeth</title>
-
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <style>
+    /* Suavizar transições */
+    .tab { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
 </head>
 
 <body class="h-screen bg-[#F4F1DE] font-sans overflow-hidden">
 
 <div class="h-full flex flex-col md:flex-row">
 
-  <!-- BOTÃO MOBILE -->
-  <button id="mobileMenuBtn"
-    class="md:hidden fixed top-4 right-4 z-50 bg-[#606C38] text-white p-2 rounded-full">
+  <button id="mobileMenuBtn" 
+    class="md:hidden fixed top-4 right-4 z-50 bg-[#606C38] text-white p-3 rounded-full shadow-lg hover:bg-[#4d572d] transition-colors">
     <i data-lucide="menu"></i>
   </button>
 
-  <div class="flex-1 max-w-7xl mx-auto bg-white md:rounded-3xl shadow-2xl flex overflow-hidden relative">
+  <div class="flex-1 max-w-7xl mx-auto bg-white md:rounded-3xl shadow-2xl flex overflow-hidden relative m-0 md:m-4">
 
-    <!-- SIDEBAR -->
-    <aside id="sidebar"
-      class="absolute md:relative z-40 w-full md:w-80 bg-[#606C38] text-white h-full flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0">
-
-      <div class="p-8 bg-[#4d572d]">
-        <div class="w-20 h-20 border-2 border-[#E09F3E] rounded-full overflow-hidden mb-4">
-          <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K"
+    <aside id="sidebar" 
+      class="absolute md:relative z-40 w-full md:w-80 bg-[#606C38] text-white h-full flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0 shadow-xl">
+      
+      <div class="p-8 bg-[#4d572d] flex flex-col items-center text-center">
+        <div class="w-24 h-24 border-4 border-[#E09F3E] rounded-full overflow-hidden mb-4 shadow-md">
+          <img src="https://lh3.googleusercontent.com/d/1_w5QcZ_F-2ZgV_s_L_v_X_x_x_x_x" 
+               onerror="this.src='https://ui-avatars.com/api/?name=Amanda+Elizabeth&background=E09F3E&color=fff'"
+               alt="Foto de Perfil" 
                class="w-full h-full object-cover">
         </div>
-
-        <h1 class="font-serif text-xl font-bold">
-          Fono<br>Amanda Elizabeth Gomes
+        
+        <h1 class="font-serif text-xl font-bold leading-tight">
+          Fono<br>Amanda Elizabeth
         </h1>
-        <p class="text-xs opacity-70">CRFa 2-19715</p>
+        <p class="text-xs opacity-70 mt-2 tracking-widest">CRFa 2-19715</p>
       </div>
 
-      <nav class="flex-1 p-4 space-y-2">
-        <button class="menu-btn w-full p-3 rounded-xl bg-[#E07A5F]" data-tab="home">Início</button>
-        <button class="menu-btn w-full p-3 rounded-xl" data-tab="about">Sobre</button>
-        <button class="menu-btn w-full p-3 rounded-xl" data-tab="chat">Assistente</button>
-        <button class="menu-btn w-full p-3 rounded-xl" data-tab="store">Loja</button>
+      <nav class="flex-1 p-4 space-y-3 overflow-y-auto">
+        <button class="menu-btn w-full p-4 rounded-xl text-left hover:bg-[#E07A5F]/50 transition-all flex items-center gap-3 bg-[#E07A5F]" data-tab="home">
+            <i data-lucide="home" class="w-5 h-5"></i> Início
+        </button>
+        <button class="menu-btn w-full p-4 rounded-xl text-left hover:bg-[#E07A5F]/50 transition-all flex items-center gap-3" data-tab="about">
+            <i data-lucide="user" class="w-5 h-5"></i> Sobre
+        </button>
+        <button class="menu-btn w-full p-4 rounded-xl text-left hover:bg-[#E07A5F]/50 transition-all flex items-center gap-3" data-tab="chat">
+            <i data-lucide="message-circle" class="w-5 h-5"></i> Assistente
+        </button>
+        <button class="menu-btn w-full p-4 rounded-xl text-left hover:bg-[#E07A5F]/50 transition-all flex items-center gap-3" data-tab="store">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i> Loja
+        </button>
       </nav>
+      
+      <div class="p-4 text-center text-xs opacity-50">
+          v1.0 - Co.Lar
+      </div>
     </aside>
 
-    <!-- CONTEÚDO -->
-    <main class="flex-1 bg-[#FAFAF5] overflow-auto">
+    <main class="flex-1 bg-[#FAFAF5] overflow-auto relative w-full">
 
-      <!-- HOME -->
-      <section id="home" class="tab h-full flex flex-col items-center justify-center text-center p-12">
-        <h1 class="text-4xl font-serif text-[#606C38] mb-4">Fono Amanda Elizabeth</h1>
-        <p class="text-[#E07A5F] mb-6">Fonoaudiologia Humanizada</p>
-        <div class="flex gap-4">
-          <button class="nav-btn bg-[#E07A5F] text-white px-6 py-3 rounded-xl" data-tab="chat">Assistente</button>
-          <button class="nav-btn bg-[#606C38] text-white px-6 py-3 rounded-xl" data-tab="store">E-books</button>
+      <section id="home" class="tab h-full flex flex-col items-center justify-center text-center p-8 md:p-12">
+        <div class="bg-[#F4F1DE] p-8 rounded-full mb-6">
+            <i data-lucide="heart-handshake" class="w-16 h-16 text-[#606C38]"></i>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-serif text-[#606C38] mb-4">Fono Amanda Elizabeth</h1>
+        <p class="text-[#E07A5F] text-lg mb-8 font-medium">Fonoaudiologia Humanizada e Acolhedora</p>
+        
+        <div class="flex flex-col md:flex-row gap-4 w-full max-w-md md:max-w-none justify-center">
+          <button class="shadow-lg transform hover:-translate-y-1 transition-transform bg-[#E07A5F] text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2" onclick="navigate('chat')">
+            <i data-lucide="message-circle"></i> Falar com Assistente
+          </button>
+          <button class="shadow-lg transform hover:-translate-y-1 transition-transform bg-[#606C38] text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2" onclick="navigate('store')">
+            <i data-lucide="book-open"></i> Ver Materiais
+          </button>
         </div>
       </section>
 
-      <!-- ABOUT -->
-      <section id="about" class="tab hidden p-12">
-        <h2 class="text-3xl font-serif text-[#606C38] mb-4">Quem sou eu</h2>
-        <p>Especialista em desenvolvimento infantil, TEA e linguagem.</p>
+      <section id="about" class="tab hidden p-8 md:p-12 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-serif text-[#606C38] mb-6 border-b-2 border-[#E09F3E] pb-2">Quem sou eu</h2>
+        <div class="prose text-gray-700 leading-relaxed">
+            <p class="mb-4 text-lg">Olá! Sou Amanda Elizabeth, fonoaudióloga apaixonada pelo desenvolvimento infantil.</p>
+            <p class="mb-4">Especialista em <strong>TEA (Transtorno do Espectro Autista)</strong> e desenvolvimento de linguagem, meu objetivo é acolher famílias e potenciar a comunicação das crianças.</p>
+            <ul class="list-disc pl-5 space-y-2 mt-4 text-[#606C38]">
+                <li>Atendimento Clínico Humanizado</li>
+                <li>Orientação Parental</li>
+                <li>Supervisão Profissional</li>
+            </ul>
+        </div>
       </section>
 
-      <!-- CHAT -->
       <section id="chat" class="tab hidden h-full flex flex-col">
-        <div class="flex-1 p-6">Assistente em construção 💬</div>
+        <div class="p-6 border-b border-gray-200 bg-white">
+            <h2 class="text-xl font-bold text-[#606C38] flex items-center gap-2">
+                <i data-lucide="bot" class="text-[#E07A5F]"></i> Assistente Virtual
+            </h2>
+            <p class="text-sm text-gray-500">Tire dúvidas sobre horários e materiais</p>
+        </div>
+        
+        <div class="flex-1 p-6 overflow-y-auto space-y-4 bg-[#FAFAF5]">
+            <div class="flex gap-3">
+                <div class="w-8 h-8 rounded-full bg-[#606C38] flex items-center justify-center text-white shrink-0">
+                    <i data-lucide="bot" class="w-4 h-4"></i>
+                </div>
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] border border-gray-100">
+                    <p class="text-gray-700">Olá! Sou a assistente virtual da Fono Amanda. Como posso ajudar você hoje?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 bg-white border-t border-gray-200">
+            <div class="flex gap-2">
+                <input type="text" placeholder="Digite sua mensagem..." class="flex-1 p-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#606C38] bg-gray-50">
+                <button class="bg-[#606C38] text-white p-3 rounded-xl hover:bg-[#4d572d]">
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+        </div>
       </section>
 
-      <!-- STORE -->
-      <section id="store" class="tab hidden p-12">
-        <a href="https://pay.kiwify.com.br/8AJ1RUP"
-           target="_blank"
-           class="block bg-[#606C38] text-white p-6 rounded-xl">
-          E-book Férias com Conexão
-        </a>
+      <section id="store" class="tab hidden p-8 md:p-12 h-full overflow-y-auto">
+        <h2 class="text-3xl font-serif text-[#606C38] mb-8">Nossos Materiais</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-[#E07A5F]/20 hover:shadow-xl transition-shadow flex flex-col">
+                <div class="h-40 bg-[#F4F1DE] rounded-xl mb-4 flex items-center justify-center">
+                    <i data-lucide="book-heart" class="w-16 h-16 text-[#E07A5F]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#606C38] mb-2">E-book: Férias com Conexão</h3>
+                <p class="text-gray-600 mb-6 text-sm flex-1">Um guia completo para manter a estimulação e a rotina durante as férias escolares de forma leve e divertida.</p>
+                
+                <a href="https://pay.kiwify.com.br/8AJ1RUP" target="_blank" 
+                   class="block w-full text-center bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-xl transition-colors shadow-md flex items-center justify-center gap-2">
+                   Comprar Agora <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
       </section>
 
     </main>
@@ -84,35 +150,46 @@
 </div>
 
 <script>
-lucide.createIcons();
+    // Inicializa os ícones
+    lucide.createIcons();
 
-const tabs = document.querySelectorAll('.tab');
-const buttons = document.querySelectorAll('[data-tab]');
-const sidebar = document.getElementById('sidebar');
+    // Lógica das Abas
+    function navigate(tabId) {
+        // 1. Esconder todas as seções
+        document.querySelectorAll('.tab').forEach(t => t.classList.add('hidden'));
+        
+        // 2. Mostrar a seção desejada
+        const targetSection = document.getElementById(tabId);
+        if(targetSection) targetSection.classList.remove('hidden');
 
-function navigate(tabId) {
-  tabs.forEach(t => t.classList.add('hidden'));
-  document.getElementById(tabId).classList.remove('hidden');
+        // 3. Atualizar botões do menu lateral (resetar todos)
+        document.querySelectorAll('.menu-btn').forEach(b => {
+            b.classList.remove('bg-[#E07A5F]');
+            b.classList.add('hover:bg-[#E07A5F]/50'); // Devolve o hover
+        });
 
-  document.querySelectorAll('.menu-btn').forEach(b =>
-    b.classList.remove('bg-[#E07A5F]')
-  );
+        // 4. Ativar o botão correspondente no menu lateral
+        const activeBtn = document.querySelector(`.menu-btn[data-tab="${tabId}"]`);
+        if (activeBtn) {
+            activeBtn.classList.remove('hover:bg-[#E07A5F]/50');
+            activeBtn.classList.add('bg-[#E07A5F]');
+        }
 
-  const activeBtn = document.querySelector(`.menu-btn[data-tab="${tabId}"]`);
-  if (activeBtn) activeBtn.classList.add('bg-[#E07A5F]');
+        // 5. Fechar menu mobile se estiver aberto
+        if (window.innerWidth < 768) {
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+        }
+    }
 
-  if (window.innerWidth < 768) {
-    sidebar.classList.add('-translate-x-full');
-  }
-}
+    // Adiciona evento de clique nos botões do menu lateral
+    document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => navigate(btn.dataset.tab));
+    });
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => navigate(btn.dataset.tab));
-});
-
-document.getElementById('mobileMenuBtn').onclick = () => {
-  sidebar.classList.toggle('-translate-x-full');
-};
+    // Toggle do Menu Mobile
+    document.getElementById('mobileMenuBtn').onclick = () => {
+        document.getElementById('sidebar').classList.toggle('-translate-x-full');
+    };
 </script>
 
 </body>
