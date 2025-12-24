@@ -43,11 +43,11 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #e5e7eb; border-radius: 20px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background-color: #d1d5db; }
         
-        .fade-in { animation: fadeIn 0.5s ease-in-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         
-        .tab-content { display: none; height: 100%; }
-        .tab-content.active { display: flex; flex-direction: column; }
+        .tab-content { display: none; height: 100%; width: 100%; flex-direction: column; }
+        .tab-content.active { display: flex; }
         
         .nav-btn.active { 
             background-color: #E07A5F; 
@@ -71,7 +71,7 @@
         <i id="menu-icon" data-lucide="menu"></i>
     </button>
 
-    <!-- Main App Container -->
+    <!-- Main Container -->
     <div class="flex-1 w-full max-w-7xl mx-auto bg-white md:rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden border border-brandMoss/10 relative h-full">
 
         <!-- SIDEBAR -->
@@ -79,7 +79,6 @@
             
             <div class="p-8 text-center md:text-left bg-[#4d572d]">
                 <div class="w-20 h-20 bg-white/10 rounded-full mx-auto md:mx-0 flex items-center justify-center mb-4 border-2 border-brandMustard overflow-hidden relative shadow-lg">
-                    <!-- LOGO SVG AE FONO -->
                     <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="50" r="50" fill="#606C38" />
                         <circle cx="50" cy="50" r="46" stroke="#E09F3E" stroke-width="2" opacity="0.5" />
@@ -104,7 +103,6 @@
             </nav>
 
             <div class="p-6 border-t border-white/10 bg-brandMoss">
-                <p class="text-[10px] font-bold text-brandMustard uppercase mb-3 text-center md:text-left tracking-widest">Redes Sociais</p>
                 <div class="flex gap-4 justify-center md:justify-start">
                     <a href="https://instagram.com/amandaelizabethfono" target="_blank" class="text-white hover:text-brandTerra transition-colors"><i data-lucide="instagram" size="20"></i></a>
                     <a href="mailto:amanda.elizabethgs@gmail.com" class="text-white hover:text-brandTerra transition-colors"><i data-lucide="mail" size="20"></i></a>
@@ -118,8 +116,9 @@
             
             <!-- 1. HOME -->
             <section id="tab-home" class="tab-content active p-6 md:p-12 fade-in overflow-y-auto items-center justify-center">
-                <div class="w-32 h-32 md:w-48 md:h-48 rounded-full mb-6 shadow-xl border-4 border-brandMustard shrink-0 transform hover:scale-105 transition-transform duration-500 overflow-hidden relative">
-                    <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" alt="Fono Amanda" class="w-full h-full object-cover">
+                <!-- FOTO DA FONO CORRIGIDA (SEM CORTAR) -->
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-3xl mb-6 shadow-2xl border-4 border-brandMustard shrink-0 transform hover:scale-105 transition-all duration-500 overflow-hidden relative">
+                    <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" alt="Fono Amanda" class="w-full h-full object-cover object-top">
                 </div>
                 <span class="bg-brandMustard/20 text-brandMustard px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">Bem-vindos</span>
                 <h1 class="font-serif text-3xl md:text-5xl font-bold text-brandMoss mb-2 leading-tight text-center">Fono Amanda Elizabeth Gomes</h1>
@@ -128,10 +127,10 @@
                     Acolhendo famílias e transformando vidas através da comunicação. Especialista em desenvolvimento infantil, linguagem, TEA e motricidade orofacial.
                 </p>
                 <div class="flex flex-col md:flex-row gap-4 w-full max-w-lg mb-8">
-                    <button onclick="switchTab('chat')" class="flex-1 bg-brandTerra hover:bg-[#C45F44] text-white py-4 px-6 rounded-xl font-bold shadow-lg transition-all hover:-translate-y-1 flex items-center justify-center gap-2 group">
+                    <button onclick="switchTab('chat')" class="flex-1 bg-brandTerra hover:bg-[#C45F44] text-white py-4 px-6 rounded-xl font-bold shadow-lg transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
                         <i data-lucide="bot" size="20"></i> Assistente Virtual
                     </button>
-                    <button onclick="switchTab('store')" class="flex-1 bg-brandMoss hover:bg-[#4d572d] text-white py-4 px-6 rounded-xl font-bold shadow-lg transition-all hover:-translate-y-1 flex items-center justify-center gap-2 text-center">
+                    <button onclick="switchTab('store')" class="flex-1 bg-brandMoss hover:bg-[#4d572d] text-white py-4 px-6 rounded-xl font-bold shadow-lg transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
                         <i data-lucide="shopping-bag" size="20"></i> Ver E-books
                     </button>
                 </div>
@@ -143,87 +142,56 @@
                     <h2 class="font-serif text-3xl md:text-4xl font-bold text-brandMoss mb-8 flex items-center gap-3 border-b border-brandMoss/10 pb-4">
                         <i data-lucide="user" class="text-brandMustard" size="32"></i> Quem sou eu
                     </h2>
-                    <div class="flex flex-col md:flex-row gap-8 mb-12 items-start">
-                        <div class="w-full md:w-1/3 shrink-0">
-                            <div class="aspect-[3/4] rounded-2xl border-2 border-brandMustard relative overflow-hidden shadow-lg group">
-                                <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Fono Amanda">
-                                <div class="absolute bottom-0 w-full bg-brandMoss/90 backdrop-blur-sm text-white text-center py-2 text-sm font-bold">CRFa 2-19715</div>
+                    <div class="flex flex-col md:flex-row gap-10 mb-12 items-start">
+                        <div class="w-full md:w-2/5 shrink-0">
+                            <div class="aspect-square md:aspect-[4/5] rounded-3xl border-2 border-brandMustard relative overflow-hidden shadow-xl group">
+                                <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt="Fono Amanda">
+                                <div class="absolute bottom-0 w-full bg-brandMoss/90 backdrop-blur-sm text-white text-center py-2 text-sm font-bold tracking-widest">CRFa 2-19715</div>
                             </div>
                         </div>
                         <div class="flex-1 space-y-4 text-gray-700 text-sm md:text-base leading-relaxed">
                             <p>Olá! Sou a <strong>Fono Amanda Elizabeth Gomes</strong>. Minha missão é proporcionar um ambiente seguro e estimulante para o desenvolvimento da comunicação infantil.</p>
                             <p>Com vasta experiência em <strong>atrasos de fala, TEA e motricidade orofacial</strong>, acredito que o envolvimento da família é a chave para o sucesso terapêutico.</p>
-                            <p>Minha atuação é estruturada em <strong>cinco pilares essenciais</strong>: <span class="text-brandTerra font-bold">singularidade, individualidade, potencialidade, autonomia e resultados.</span></p>
-                            <p>Meu foco é oferecer intervenções personalizadas, que vão além do diagnóstico e consideram o paciente de forma integral. Cada plano terapêutico é construído a partir das reais necessidades, habilidades e objetivos funcionais.</p>
-                            <p class="font-medium text-brandMoss">Acredito em uma fonoaudiologia humanizada, estratégica e orientada para resultados reais.</p>
+                            <p>Minha atuação é baseada em cinco pilares fundamentais: <span class="text-brandTerra font-bold">singularidade, individualidade, potencialidade, autonomia e resultados.</span></p>
+                            <p>O foco é oferecer intervenções personalizadas que consideram o paciente de forma integral, promovendo evolução consistente e aplicável à rotina.</p>
+                            <p class="font-medium text-brandMoss">Acredito numa fonoaudiologia humanizada e estratégica.</p>
                             <div class="flex flex-wrap gap-2 pt-4">
                                 <span class="bg-brandCream text-brandMoss px-3 py-1 rounded-lg text-xs font-bold border border-brandMoss/10">TEA</span>
                                 <span class="bg-brandCream text-brandMoss px-3 py-1 rounded-lg text-xs font-bold border border-brandMoss/10">Linguagem</span>
                                 <span class="bg-brandCream text-brandMoss px-3 py-1 rounded-lg text-xs font-bold border border-brandMoss/10">Motricidade Oral</span>
-                                <span class="bg-brandCream text-brandMoss px-3 py-1 rounded-lg text-xs font-bold border border-brandMoss/10">Método Próprio</span>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- DIFERENCIAIS LIMPOS (ESTILO REACT 19:23) -->
-                    <h3 class="font-serif text-2xl font-bold text-brandTerra mb-10 text-center border-t border-brandMoss/10 pt-8">Diferenciais da Minha Atuação</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12">
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="mb-4 text-brandTerra transition-transform duration-300 group-hover:scale-110"><i data-lucide="sparkles" size="40"></i></div>
-                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Atuação em 5 Pilares</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Singularidade, individualidade, potencialidade, autonomia e resultados.</p>
-                        </div>
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="mb-4 text-brandMustard transition-transform duration-300 group-hover:scale-110"><i data-lucide="heart" size="40"></i></div>
-                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Visão Integral</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Intervenções que consideram o paciente de forma global, muito além do diagnóstico.</p>
-                        </div>
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="mb-4 text-brandMoss transition-transform duration-300 group-hover:scale-110"><i data-lucide="book-open" size="40"></i></div>
-                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Resultados Reais</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Fonoaudiologia estratégica e orientada para evolução consistente na rotina.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- 3. CHAT -->
-            <section id="tab-chat" class="tab-content relative flex flex-col h-full bg-[#FAFAF5] overflow-hidden">
+            <section id="tab-chat" class="tab-content relative flex-col h-full bg-[#FAFAF5] overflow-hidden">
                 <div id="chat-messages" class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
                     <!-- Mensagens via JS -->
                 </div>
-                <div class="bg-white p-4 border-t border-brandMoss/10 shrink-0">
+                <div class="bg-white p-4 border-t border-brandMoss/10 shrink-0 shadow-lg">
                     <div class="flex gap-3 relative items-center max-w-3xl mx-auto">
                         <input type="text" id="chat-input" onkeydown="handleChatEnter(event)" placeholder="Tire sua dúvida..." class="w-full bg-brandBeige/50 text-gray-700 rounded-xl pl-5 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-brandTerra/50 transition-all text-sm" />
-                        <button onclick="handleSendMessage()" class="absolute right-2 w-10 h-10 bg-brandTerra rounded-lg flex items-center justify-center text-white hover:bg-[#C45F44] transition-all shadow-md"><i data-lucide="send" size="18"></i></button>
+                        <button onclick="handleSendMessage()" class="absolute right-2 w-10 h-10 bg-brandTerra rounded-lg flex items-center justify-center text-white hover:bg-[#C45F44] transition-all"><i data-lucide="send" size="18"></i></button>
                     </div>
                 </div>
             </section>
 
             <!-- 4. CURSOS -->
             <section id="tab-courses" class="tab-content p-6 md:p-12 fade-in overflow-y-auto items-center justify-center text-center">
-                <div class="w-24 h-24 bg-brandCream rounded-full flex items-center justify-center mb-6 border-2 border-brandMustard border-dashed">
-                    <i data-lucide="graduation-cap" size="40" class="text-brandMustard"></i>
-                </div>
+                <div class="w-24 h-24 bg-brandCream rounded-full flex items-center justify-center mb-6 border-2 border-brandMustard border-dashed"><i data-lucide="graduation-cap" size="40" class="text-brandMustard"></i></div>
                 <h2 class="font-serif text-3xl font-bold text-brandMoss mb-3">Cursos e Workshops</h2>
-                <div class="flex items-center gap-2 text-brandTerra bg-brandTerra/10 px-4 py-2 rounded-full font-bold text-sm mb-6 mx-auto w-fit">
-                    <i data-lucide="hammer" size="16"></i>
-                    <span>Página em Construção</span>
-                </div>
-                <p class="text-gray-500 max-w-md mx-auto">Estamos preparando conteúdos incríveis para você. Em breve teremos novidades!</p>
+                <div class="flex items-center gap-2 text-brandTerra bg-brandTerra/10 px-4 py-2 rounded-full font-bold text-sm mb-6 mx-auto w-fit"><i data-lucide="hammer" size="16"></i><span>Página em Construção</span></div>
+                <p class="text-gray-500 max-w-md mx-auto">Esta funcionalidade está a ser preparada com muito carinho. Em breve teremos novidades!</p>
             </section>
 
             <!-- 5. DOWNLOADS -->
             <section id="tab-free" class="tab-content p-6 md:p-12 fade-in overflow-y-auto items-center justify-center text-center">
-                <div class="w-24 h-24 bg-brandCream rounded-full flex items-center justify-center mb-6 border-2 border-brandMustard border-dashed">
-                    <i data-lucide="download" size="40" class="text-brandMustard"></i>
-                </div>
+                <div class="w-24 h-24 bg-brandCream rounded-full flex items-center justify-center mb-6 border-2 border-brandMustard border-dashed"><i data-lucide="download" size="40" class="text-brandMustard"></i></div>
                 <h2 class="font-serif text-3xl font-bold text-brandMoss mb-3">Downloads Gratuitos</h2>
-                <div class="flex items-center gap-2 text-brandTerra bg-brandTerra/10 px-4 py-2 rounded-full font-bold text-sm mb-6 mx-auto w-fit">
-                    <i data-lucide="hammer" size="16"></i>
-                    <span>Página em Construção</span>
-                </div>
-                <p class="text-gray-500 max-w-md mx-auto">Em breve disponibilizaremos tabelas e recursos exclusivos para imprimir.</p>
+                <div class="flex items-center gap-2 text-brandTerra bg-brandTerra/10 px-4 py-2 rounded-full font-bold text-sm mb-6 mx-auto w-fit"><i data-lucide="hammer" size="16"></i><span>Página em Construção</span></div>
+                <p class="text-gray-500 max-w-md mx-auto">Em breve disponibilizaremos recursos exclusivos para imprimir.</p>
             </section>
 
             <!-- 6. LOJA -->
@@ -231,28 +199,22 @@
                 <div class="max-w-6xl mx-auto w-full">
                     <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-brandMoss/10 pb-6">
                         <div>
-                            <h2 class="font-serif text-3xl font-bold text-brandMoss mb-2 flex items-center gap-3">
-                                <i data-lucide="shopping-bag" class="text-brandMustard" size="32"></i> Loja de Materiais
-                            </h2>
-                            <p class="text-gray-500 text-sm">E-books e Guias exclusivos para famílias.</p>
+                            <h2 class="font-serif text-3xl font-bold text-brandMoss mb-2 flex items-center gap-3"><i data-lucide="shopping-bag" class="text-brandMustard" size="32"></i> Loja de Materiais</h2>
+                            <p class="text-gray-500 text-sm">E-books exclusivos para famílias.</p>
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-6 pb-12">
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-brandMoss/10 flex flex-col hover:border-brandMustard transition-all">
-                            <div class="aspect-video bg-brandBeige rounded-xl mb-5 overflow-hidden">
-                                <img src="https://lh3.googleusercontent.com/d/1-CZEYdhWXs48GU4EiQnzIh6ON9SeBX_I" class="w-full h-full object-cover">
-                            </div>
+                            <div class="aspect-video bg-brandBeige rounded-xl mb-5 overflow-hidden"><img src="https://lh3.googleusercontent.com/d/1-CZEYdhWXs48GU4EiQnzIh6ON9SeBX_I" class="w-full h-full object-cover"></div>
                             <h3 class="font-bold text-brandMoss text-xl mb-2">E-book Férias com Conexão</h3>
-                            <p class="text-sm text-gray-500 mb-6 flex-1 text-justify leading-relaxed">Guia completo para pais com rotinas, brincadeiras sem telas e dicas de regulação emocional e de fala.</p>
-                            <a href="https://pay.kiwify.com.br/8AJ1RUP" target="_blank" class="w-full bg-brandMoss text-white p-4 rounded-xl hover:bg-[#4d572d] transition-colors shadow-md flex items-center justify-center gap-2 font-bold uppercase text-xs tracking-widest">Quero Comprar <i data-lucide="arrow-right" size="18"></i></a>
+                            <p class="text-sm text-gray-500 mb-6 flex-1 leading-relaxed">Guia completo para pais com rotinas, brincadeiras e dicas de regulação emocional.</p>
+                            <a href="https://pay.kiwify.com.br/8AJ1RUP" target="_blank" class="w-full bg-brandMoss text-white p-4 rounded-xl text-center font-bold uppercase text-xs">Quero Comprar</a>
                         </div>
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-brandMoss/10 flex flex-col hover:border-brandTerra transition-all">
-                            <div class="aspect-video bg-brandCream rounded-xl mb-5 overflow-hidden">
-                                <img src="https://lh3.googleusercontent.com/d/1BhEaiRPJ3pt5uheG05raKbmHHO5BVoY_" class="w-full h-full object-cover">
-                            </div>
+                            <div class="aspect-video bg-brandCream rounded-xl mb-5 overflow-hidden"><img src="https://lh3.googleusercontent.com/d/1BhEaiRPJ3pt5uheG05raKbmHHO5BVoY_" class="w-full h-full object-cover"></div>
                             <h3 class="font-bold text-brandMoss text-xl mb-2">Guia Férias sem Caos</h3>
-                            <p class="text-sm text-gray-500 mb-6 flex-1 text-justify leading-relaxed">Estratégias práticas para manter a organização e a tranquilidade durante o período de férias escolares.</p>
-                            <a href="https://pay.kiwify.com.br/5FJGU6K" target="_blank" class="w-full bg-brandMustard text-white p-4 rounded-xl hover:bg-[#c2862a] transition-colors shadow-md flex items-center justify-center gap-2 font-bold uppercase text-xs tracking-widest">Saiba Mais <i data-lucide="arrow-right" size="18"></i></a>
+                            <p class="text-sm text-gray-500 mb-6 flex-1 leading-relaxed">Estratégias práticas para manter a organização durante as férias escolares.</p>
+                            <a href="https://pay.kiwify.com.br/5FJGU6K" target="_blank" class="w-full bg-brandMustard text-white p-4 rounded-xl text-center font-bold uppercase text-xs">Saiba Mais</a>
                         </div>
                     </div>
                 </div>
@@ -264,15 +226,27 @@
     <!-- LOGICA -->
     <script>
         lucide.createIcons();
+        let chatInitialized = false;
 
         function switchTab(tabId) {
+            // Esconder todas as abas
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
             
+            // Ativar a aba clicada
             document.getElementById('tab-' + tabId).classList.add('active');
             document.getElementById('btn-' + tabId).classList.add('active');
 
+            // Fechar menu mobile se estiver aberto
             if (window.innerWidth < 768) { toggleMobileMenu(true); }
+
+            // Se for o chat, inicializar a primeira mensagem apenas uma vez
+            if (tabId === 'chat' && !chatInitialized) {
+                setTimeout(() => {
+                    addMessage("Olá! Sou o assistente virtual da **Fono Amanda Elizabeth Gomes**. Estou aqui para oferecer dicas leves para o dia a dia e tirar dúvidas rápidas sobre o desenvolvimento infantil.", 'bot', ["Dicas de **Fala e Linguagem**", "Dúvidas sobre **Mastigação**", "**Agendamento de Consulta**"]);
+                    chatInitialized = true;
+                }, 500);
+            }
         }
 
         function toggleMobileMenu(forceClose = false) {
@@ -321,7 +295,7 @@
                     </div>`;
             }
 
-            html += `<p class="text-[10px] text-gray-400 mt-2 text-right italic border-t pt-2">${isBot ? 'Assistente Virtual' : 'Você'}</p></div></div>`;
+            html += `<p class="text-[10px] text-gray-400 mt-2 text-right italic border-t pt-2">${isBot ? 'Fono Assistente' : 'Você'}</p></div></div>`;
             msgDiv.innerHTML = html;
             chatMessages.appendChild(msgDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -340,18 +314,14 @@
                 if (lower.match(/(fala|atraso|palavra)/)) {
                     addMessage("A estimulação da fala acontece nas pequenas rotinas. Narre as ações e dê tempo para a resposta.", 'bot', ["**Aguarde:** Espere 10s.", "**Expansão:** Se ele disser 'pão', diga 'Pão gostoso!'."]);
                 } else if (lower.match(/(comer|mastigar|sensibilidade)/)) {
-                    addMessage("Questões sensoriais pedem paciência e ludicidade.", 'bot', ["**Brincar:** Toque nos alimentos.", "**Caretas:** Fortalece a musculatura."], true);
+                    addMessage("Questões sensoriais pedem paciência. Tente brincar com os alimentos.", 'bot', ["**Dica:** Fazer caretas no espelho ajuda."], true);
                 } else if (lower.match(/(agendar|consulta|avaliação)/)) {
-                    addMessage("Para um direcionamento seguro, o ideal é uma avaliação detalhada.", 'bot', ["Atendimento presencial ou online."], true);
+                    addMessage("Podemos agendar uma avaliação detalhada para entender o caso.", 'bot', ["Atendimento presencial ou online."], true);
                 } else {
-                    addMessage("Olá! Sou o assistente da Fono Amanda. Posso ajudar com dicas de fala, mastigação ou agendamentos.", 'bot', ["Como estimular a **fala**?", "**Agendar** avaliação"]);
+                    addMessage("Olá! Sou o assistente da Fono Amanda. Como posso ajudar?", 'bot', ["Como estimular a **fala**?", "**Agendar** avaliação"]);
                 }
             }, 1000);
         }
-
-        window.onload = () => {
-            addMessage("Olá! Sou o assistente virtual da **Fono Amanda Elizabeth Gomes**. Estou aqui para oferecer dicas leves para o dia a dia e dúvidas rápidas sobre o desenvolvimento infantil.", 'bot', ["Dicas de **Fala e Linguagem**", "Dúvidas sobre **Mastigação**", "**Agendamento de Consulta**"]);
-        };
     </script>
 </body>
 </html>
