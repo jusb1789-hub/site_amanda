@@ -46,7 +46,7 @@
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Gestão Rigorosa de Visibilidade de Abas */
+        /* Gestão de Abas */
         .tab-content { display: none !important; height: 100%; width: 100%; flex-direction: column; overflow-y: auto; }
         .tab-content.active { display: flex !important; }
         
@@ -63,6 +63,18 @@
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .profile-img-container {
+            position: relative;
+            overflow: hidden;
+            background-color: #f3f4f6;
+        }
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-700 h-screen overflow-hidden flex flex-col md:flex-row p-0 md:p-6">
@@ -104,8 +116,8 @@
                 </ul>
             </nav>
 
-            <div class="p-6 border-t border-white/10 bg-brandMoss shrink-0">
-                <div class="flex gap-4 justify-center md:justify-start">
+            <div class="p-6 border-t border-white/10 bg-brandMoss shrink-0 text-center">
+                <div class="flex gap-4 justify-center">
                     <a href="https://instagram.com/amandaelizabethfono" target="_blank" class="text-white hover:text-brandTerra transition-colors"><i data-lucide="instagram" size="20"></i></a>
                     <a href="mailto:amanda.elizabethgs@gmail.com" class="text-white hover:text-brandTerra transition-colors"><i data-lucide="mail" size="20"></i></a>
                     <a href="https://wa.me/5511960808313" target="_blank" class="text-white hover:text-brandTerra transition-colors"><i data-lucide="message-circle" size="20"></i></a>
@@ -118,17 +130,16 @@
             
             <!-- 1. HOME -->
             <section id="tab-home" class="tab-content active p-6 md:p-12 fade-in items-center justify-center">
-                <!-- FOTO DA FONO REAJUSTADA (ALTURA MAIOR PARA NÃO CORTAR CABEÇA) -->
-                <div class="w-64 h-[340px] md:w-80 md:h-[420px] rounded-3xl mb-6 shadow-2xl border-4 border-brandMustard shrink-0 transform hover:scale-[1.02] transition-all duration-500 overflow-hidden relative">
-                    <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" alt="Fono Amanda" class="w-full h-full object-cover object-top">
+                <div class="w-64 h-[350px] md:w-80 md:h-[450px] rounded-3xl mb-6 shadow-2xl border-4 border-brandMustard shrink-0 profile-img-container shadow-xl">
+                    <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" alt="Fono Amanda">
                 </div>
                 <span class="bg-brandMustard/20 text-brandMustard px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">Bem-vindos</span>
                 <h1 class="font-serif text-3xl md:text-5xl font-bold text-brandMoss mb-2 leading-tight text-center">Fono Amanda Elizabeth Gomes</h1>
                 <p class="text-brandTerra text-base md:text-lg font-medium tracking-wide uppercase mb-6 text-center italic">Fonoaudiologia Humanizada & Conexão Familiar</p>
-                <p class="max-w-2xl text-gray-600 mb-10 leading-relaxed text-sm md:text-base text-center">
+                <p class="max-w-2xl text-gray-600 mb-10 leading-relaxed text-sm md:text-base text-center px-4">
                     Acolhendo famílias e transformando vidas através da comunicação. Especialista em desenvolvimento infantil, linguagem, TEA e motricidade orofacial.
                 </p>
-                <div class="flex flex-col md:flex-row gap-4 w-full max-w-lg mb-8">
+                <div class="flex flex-col md:flex-row gap-4 w-full max-w-lg mb-8 px-4">
                     <button onclick="switchTab('chat')" class="flex-1 bg-brandTerra hover:bg-[#C45F44] text-white py-4 px-6 rounded-xl font-bold shadow-lg transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
                         <i data-lucide="bot" size="20"></i> Assistente Virtual
                     </button>
@@ -146,15 +157,15 @@
                     </h2>
                     <div class="flex flex-col md:flex-row gap-10 mb-12 items-start">
                         <div class="w-full md:w-2/5 shrink-0">
-                            <div class="w-full h-[380px] md:h-[480px] rounded-3xl border-2 border-brandMustard relative overflow-hidden shadow-xl group">
-                                <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt="Fono Amanda">
-                                <div class="absolute bottom-0 w-full bg-brandMoss/90 backdrop-blur-sm text-white text-center py-2 text-sm font-bold tracking-widest">CRFa 2-19715</div>
+                            <div class="w-full aspect-[3/4] rounded-3xl border-2 border-brandMustard relative profile-img-container shadow-xl group">
+                                <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K" alt="Fono Amanda" class="transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute bottom-0 w-full bg-brandMoss/90 backdrop-blur-sm text-white text-center py-2 text-sm font-bold tracking-widest uppercase">CRFa 2-19715</div>
                             </div>
                         </div>
                         <div class="flex-1 space-y-4 text-gray-700 text-sm md:text-base leading-relaxed text-justify">
                             <p>Olá! Sou a <strong>Fono Amanda Elizabeth Gomes</strong>. Minha missão é proporcionar um ambiente seguro e estimulante para o desenvolvimento da comunicação infantil.</p>
                             <p>Com vasta experiência em <strong>atrasos de fala, TEA e motricidade orofacial</strong>, acredito que o envolvimento da família é a chave para o sucesso terapêutico.</p>
-                            <p>Minha atuação é baseada em cinco pilares fundamentais: <span class="text-brandTerra font-bold">singularidade, individualidade, potencialidade, autonomia e resultados.</span></p>
+                            <p>Minha atuação baseia-se nos pilares da <span class="text-brandTerra font-bold">singularidade, individualidade, potencialidade, autonomia e resultados.</span></p>
                             <p>O foco é oferecer intervenções personalizadas que consideram o paciente de forma integral, promovendo evolução consistente e aplicável à rotina.</p>
                             <p class="font-medium text-brandMoss text-lg">Acredito numa fonoaudiologia humanizada e estratégica.</p>
                             <div class="flex flex-wrap gap-2 pt-4">
@@ -166,56 +177,62 @@
                     </div>
 
                     <!-- DIFERENCIAIS LIMPOS -->
-                    <h3 class="font-serif text-2xl font-bold text-brandTerra mb-10 text-center border-t border-brandMoss/10 pt-8">Diferenciais da Minha Atuação</h3>
+                    <h3 class="font-serif text-2xl font-bold text-brandTerra mb-10 text-center border-t border-brandMoss/10 pt-8 uppercase tracking-widest">Diferenciais</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12">
                         <div class="flex flex-col items-center text-center group">
                             <div class="mb-4 text-brandTerra transition-transform duration-300 group-hover:scale-110"><i data-lucide="sparkles" size="44"></i></div>
-                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Atuação em 5 Pilares</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Singularidade, individualidade, potencialidade, autonomia e resultados.</p>
+                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">5 Pilares</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Foco na singularidade e potencialidade de cada criança.</p>
                         </div>
                         <div class="flex flex-col items-center text-center group">
                             <div class="mb-4 text-brandMustard transition-transform duration-300 group-hover:scale-110"><i data-lucide="heart" size="44"></i></div>
                             <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Visão Integral</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Intervenções que consideram o paciente de forma global, muito além do diagnóstico.</p>
+                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Intervenções que vão além do óbvio clínico.</p>
                         </div>
                         <div class="flex flex-col items-center text-center group">
                             <div class="mb-4 text-brandMoss transition-transform duration-300 group-hover:scale-110"><i data-lucide="book-open" size="44"></i></div>
-                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Resultados Reais</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Fonoaudiologia estratégica e orientada para evolução consistente na rotina.</p>
+                            <h4 class="font-bold text-brandMoss mb-3 text-lg uppercase tracking-tight">Resultados</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed max-w-[250px]">Fonoaudiologia estratégica e aplicável à rotina.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. CHAT (CONTEÚDO TOTALMENTE ISOLADO NESTA ABA) -->
+            <!-- 3. CHAT (IA AVANÇADA GEMINI - SESSÃO CONTÍNUA) -->
             <section id="tab-chat" class="tab-content relative flex-col h-full bg-[#FAFAF5] overflow-hidden">
-                <div id="chat-messages" class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
+                <div id="chat-messages" class="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar space-y-4">
                     <!-- Mensagens via JS -->
                 </div>
-                <!-- Barra de digitação EXCLUSIVA desta aba -->
+                
+                <div id="typing-indicator" class="hidden px-8 py-2 text-xs text-brandMoss italic animate-pulse font-bold flex items-center gap-2">
+                    <i data-lucide="bot" size="14"></i> Amanda está a formular uma orientação...
+                </div>
+
                 <div class="bg-white p-4 border-t border-brandMoss/10 shrink-0 shadow-lg z-20">
                     <div class="flex gap-3 relative items-center max-w-3xl mx-auto">
-                        <input type="text" id="chat-input" onkeydown="handleChatEnter(event)" placeholder="Tire sua dúvida..." class="w-full bg-brandBeige/50 text-gray-700 rounded-xl pl-5 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-brandTerra/50 transition-all text-sm" />
-                        <button onclick="handleSendMessage()" class="absolute right-2 w-10 h-10 bg-brandTerra rounded-lg flex items-center justify-center text-white hover:bg-[#C45F44] transition-all shadow-md"><i data-lucide="send" size="18"></i></button>
+                        <input type="text" id="chat-input" onkeydown="handleChatEnter(event)" placeholder="Escreva sua dúvida sobre desenvolvimento infantil..." class="w-full bg-brandBeige/50 text-gray-700 rounded-xl pl-5 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-brandTerra/50 transition-all text-sm" />
+                        <button id="send-btn" onclick="handleSendMessage()" class="absolute right-2 w-10 h-10 bg-brandTerra rounded-lg flex items-center justify-center text-white hover:bg-[#C45F44] transition-all shadow-md">
+                            <i data-lucide="send" size="18"></i>
+                        </button>
                     </div>
-                    <p class="text-center text-[10px] text-gray-400 mt-2 font-bold tracking-tight">Este assistente não realiza diagnósticos e não substitui terapia.</p>
+                    <p class="text-center text-[10px] text-gray-400 mt-2 font-bold tracking-tight">Este assistente não realiza diagnósticos e não substitui consulta presencial.</p>
                 </div>
             </section>
 
             <!-- 4. CURSOS -->
             <section id="tab-courses" class="tab-content p-6 md:p-12 fade-in items-center justify-center text-center">
                 <div class="w-24 h-24 bg-brandCream rounded-full flex items-center justify-center mb-6 border-2 border-brandMustard border-dashed"><i data-lucide="graduation-cap" size="40" class="text-brandMustard"></i></div>
-                <h2 class="font-serif text-3xl font-bold text-brandMoss mb-3">Cursos e Workshops</h2>
+                <h2 class="font-serif text-3xl font-bold text-brandMoss mb-3 uppercase tracking-widest">Cursos</h2>
                 <div class="flex items-center gap-2 text-brandTerra bg-brandTerra/10 px-4 py-2 rounded-full font-bold text-sm mb-6 mx-auto w-fit"><i data-lucide="hammer" size="16"></i><span>Página em Construção</span></div>
-                <p class="text-gray-500 max-w-md mx-auto font-sans">Esta funcionalidade está a ser preparada com muito carinho. Em breve teremos novidades!</p>
+                <p class="text-gray-500 max-w-md mx-auto">Novos conteúdos para ajudar famílias estão a caminho.</p>
             </section>
 
             <!-- 5. DOWNLOADS -->
-            <section id="tab-free" class="tab-content p-6 md:p-12 fade-in items-center justify-center text-center">
+            <section id="tab-free" class="tab-content p-6 md:p-12 fade-in overflow-y-auto items-center justify-center text-center">
                 <div class="w-24 h-24 bg-brandCream rounded-full flex items-center justify-center mb-6 border-2 border-brandMustard border-dashed"><i data-lucide="download" size="40" class="text-brandMustard"></i></div>
-                <h2 class="font-serif text-3xl font-bold text-brandMoss mb-3">Downloads Gratuitos</h2>
+                <h2 class="font-serif text-3xl font-bold text-brandMoss mb-3 uppercase tracking-widest">Downloads</h2>
                 <div class="flex items-center gap-2 text-brandTerra bg-brandTerra/10 px-4 py-2 rounded-full font-bold text-sm mb-6 mx-auto w-fit"><i data-lucide="hammer" size="16"></i><span>Página em Construção</span></div>
-                <p class="text-gray-500 max-w-md mx-auto font-sans">Em breve disponibilizaremos recursos exclusivos para imprimir e utilizar em casa.</p>
+                <p class="text-gray-500 max-w-md mx-auto">Guias práticos para baixar em breve.</p>
             </section>
 
             <!-- 6. LOJA -->
@@ -224,7 +241,7 @@
                     <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-brandMoss/10 pb-6">
                         <div>
                             <h2 class="font-serif text-3xl font-bold text-brandMoss mb-2 flex items-center gap-3"><i data-lucide="shopping-bag" class="text-brandMustard" size="32"></i> Loja de Materiais</h2>
-                            <p class="text-gray-500 text-sm font-sans uppercase tracking-widest font-bold">E-books exclusivos para famílias.</p>
+                            <p class="text-gray-500 text-sm font-sans uppercase tracking-widest font-bold">E-books Exclusivos</p>
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8 pb-12">
@@ -232,16 +249,16 @@
                             <div class="aspect-video bg-brandBeige rounded-xl mb-5 overflow-hidden shadow-inner">
                                 <img src="https://lh3.googleusercontent.com/d/1-CZEYdhWXs48GU4EiQnzIh6ON9SeBX_I" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             </div>
-                            <h3 class="font-bold text-brandMoss text-xl mb-2 font-serif">E-book Férias com Conexão</h3>
-                            <p class="text-sm text-gray-500 mb-6 flex-1 text-justify leading-relaxed">Guia completo para pais com rotinas, brincadeiras e dicas de regulação emocional e de fala.</p>
+                            <h3 class="font-bold text-brandMoss text-xl mb-2 font-serif uppercase tracking-tight">Férias com Conexão</h3>
+                            <p class="text-sm text-gray-500 mb-6 flex-1 text-justify leading-relaxed">Estimule a fala e o vínculo durante as férias escolares.</p>
                             <a href="https://pay.kiwify.com.br/8AJ1RUP" target="_blank" class="w-full bg-brandMoss text-white p-4 rounded-xl text-center font-bold uppercase text-xs tracking-widest hover:bg-[#4d572d] transition-all">Quero Comprar</a>
                         </div>
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-brandMoss/10 flex flex-col hover:border-brandTerra transition-all group">
                             <div class="aspect-video bg-brandCream rounded-xl mb-5 overflow-hidden shadow-inner">
                                 <img src="https://lh3.googleusercontent.com/d/1BhEaiRPJ3pt5uheG05raKbmHHO5BVoY_" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             </div>
-                            <h3 class="font-bold text-brandMoss text-xl mb-2 font-serif">Guia Férias sem Caos</h3>
-                            <p class="text-sm text-gray-500 mb-6 flex-1 text-justify leading-relaxed">Estratégias práticas para manter a organização e a tranquilidade durante as férias escolares.</p>
+                            <h3 class="font-bold text-brandMoss text-xl mb-2 font-serif uppercase tracking-tight">Férias sem Caos</h3>
+                            <p class="text-sm text-gray-500 mb-6 flex-1 text-justify leading-relaxed">Estratégias práticas para organização e calma na rotina de férias.</p>
                             <a href="https://pay.kiwify.com.br/5FJGU6K" target="_blank" class="w-full bg-brandMustard text-white p-4 rounded-xl text-center font-bold uppercase text-xs tracking-widest hover:bg-[#c2862a] transition-all">Saiba Mais</a>
                         </div>
                     </div>
@@ -251,30 +268,32 @@
         </main>
     </div>
 
-    <!-- LOGICA -->
+    <!-- LOGICA E INTEGRAÇÃO GEMINI -->
     <script>
+        const apiKey = ""; // Chave injetada automaticamente pelo ambiente
         lucide.createIcons();
+        
         let chatInitialized = false;
+        let chatHistory = []; // Armazena a memória da conversa para modo contínuo
 
         function switchTab(tabId) {
-            // Esconder todas as abas rigorosamente
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
             
-            // Ativar a aba clicada
             const selectedTab = document.getElementById('tab-' + tabId);
             const selectedBtn = document.getElementById('btn-' + tabId);
             
             if (selectedTab) selectedTab.classList.add('active');
             if (selectedBtn) selectedBtn.classList.add('active');
 
-            // Mobile: fechar menu ao clicar
             if (window.innerWidth < 768) { toggleMobileMenu(true); }
 
-            // Iniciar o chat apenas se estiver na aba chat e ainda não tiver sido iniciado
             if (tabId === 'chat' && !chatInitialized) {
                 setTimeout(() => {
-                    addMessage("Olá! Sou o assistente virtual da **Fono Amanda Elizabeth Gomes**. Estou aqui para oferecer dicas leves para o dia a dia e tirar dúvidas rápidas sobre o desenvolvimento infantil.", 'bot', ["Dicas de **Fala e Linguagem**", "Dúvidas sobre **Mastigação**", "**Agendamento de Consulta**"]);
+                    const welcomeText = "Olá! Sou o assistente virtual de apoio da **Fga. Amanda Elizabeth Gomes**. Estou aqui para orientar pais e cuidadores de forma simples, acolhedora e responsável sobre o desenvolvimento infantil.\n\nComo posso ajudar hoje?";
+                    addMessage(welcomeText, 'bot');
+                    // Adicionamos a mensagem de boas vindas ao histórico para manter o tom
+                    chatHistory.push({ role: "model", parts: [{ text: welcomeText }] });
                     chatInitialized = true;
                 }, 400);
             }
@@ -291,69 +310,125 @@
 
         const chatMessages = document.getElementById('chat-messages');
         const chatInput = document.getElementById('chat-input');
+        const typingIndicator = document.getElementById('typing-indicator');
 
-        function addMessage(text, sender, tips = [], showContact = false) {
+        function addMessage(text, sender, showContact = false) {
             if (!chatMessages) return;
             const isBot = sender === 'bot';
             const msgDiv = document.createElement('div');
             msgDiv.className = `flex w-full mb-6 ${isBot ? 'justify-start' : 'justify-end'} fade-in`;
             
-            let html = `
+            let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+            let contentHtml = `
                 <div class="flex max-w-[90%] md:max-w-[75%] ${isBot ? 'flex-row' : 'flex-row-reverse'} gap-3 items-end">
                     <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm ${isBot ? 'bg-brandMoss' : 'bg-brandTerra'} text-white">
                         <i data-lucide="${isBot ? 'bot' : 'user'}" size="14"></i>
                     </div>
                     <div class="p-5 rounded-2xl text-sm leading-relaxed shadow-md ${isBot ? 'chat-bubble-bot' : 'chat-bubble-user'}">
-                        <p class="whitespace-pre-wrap">${text}</p>`;
-
-            if (tips.length > 0) {
-                html += '<div class="mt-4 space-y-2">';
-                tips.forEach(tip => {
-                    html += `<div class="flex items-start gap-2 p-2 rounded-lg ${isBot ? 'bg-[#F4F1DE]' : 'bg-white/20'}">
-                        <span class="${isBot ? 'text-brandMustard' : 'text-white'}">•</span>
-                        <span>${tip.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</span>
-                    </div>`;
-                });
-                html += '</div>';
-            }
+                        <p class="whitespace-pre-wrap">${formattedText}</p>`;
 
             if (showContact && isBot) {
-                html += `
-                    <div class="mt-4 bg-[#FEFAE0] border border-brandMustard/30 rounded-xl p-4 text-center">
-                        <h3 class="font-bold text-brandMoss mb-2 text-base">Agendar Avaliação</h3>
-                        <a href="https://wa.me/5511960808313" target="_blank" class="flex items-center justify-center gap-2 bg-brandMoss text-white py-2 px-4 rounded-lg text-xs font-bold hover:bg-[#4d572d] transition-colors w-full">
-                            <i data-lucide="phone" size="14"></i> WhatsApp
+                contentHtml += `
+                    <div class="mt-4 bg-[#FEFAE0] border border-brandMustard/30 rounded-xl p-4 text-center space-y-3">
+                        <p class="text-xs text-brandMoss font-bold tracking-tight">Para um acompanhamento personalizado:</p>
+                        <a href="https://wa.me/5511960808313" target="_blank" class="flex items-center justify-center gap-2 bg-brandMoss text-white py-2 px-4 rounded-lg text-xs font-bold hover:bg-[#4d572d] transition-colors w-full shadow-sm">
+                            <i data-lucide="message-circle" size="14"></i> Falar pelo WhatsApp
                         </a>
+                        <p class="text-[9px] text-gray-500 italic">Também é possível agendar uma consulta de avaliação ou orientação parental.</p>
                     </div>`;
             }
 
-            html += `<p class="text-[10px] text-gray-400 mt-2 text-right italic border-t pt-2">${isBot ? 'Fono Assistente' : 'Você'}</p></div></div>`;
-            msgDiv.innerHTML = html;
+            contentHtml += `
+                        <p class="text-[10px] text-gray-400 mt-2 text-right italic border-t border-gray-100 pt-2">${isBot ? 'Amanda Assistant' : 'Você'}</p>
+                    </div>
+                </div>`;
+            
+            msgDiv.innerHTML = contentHtml;
             chatMessages.appendChild(msgDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
             lucide.createIcons();
         }
 
-        function handleChatEnter(e) { if (e.key === 'Enter') handleSendMessage(); }
+        async function fetchGeminiResponse(userQuery) {
+            // Este chat funciona em modo de sessão contínua, mantendo contexto e histórico da conversa até o usuário encerrar.
+            const systemPrompt = `Este chat funciona em modo de sessão contínua, mantendo contexto e histórico da conversa até o usuário encerrar.
+            Tu és um assistente virtual de apoio em Fonoaudiologia Infantil, criado para orientar pais e cuidadores em nome da Fga. Amanda Elizabeth Gomes (CRFa 2-19715).
+            
+            TEU PAPEL:
+            - Ajudar com dúvidas simples e gerais: marcos de fala/linguagem por idade, comunicação no dia a dia, rotinas, brincadeiras e estímulos leves.
+            - Usar vocabulário simples, acolhedor, empático e claro. Evitar termos técnicos.
+            - Teus pilares: singularidade, individualidade, potencialidade, autonomia e resultados.
+            
+            DURANTE TODA A INTERAÇÃO:
+            - NUNCA reinicies a conversa com "Olá" novamente após a primeira mensagem. Trata como atendimento contínuo.
+            - GUARDA e UTILIZA informações já mencionadas: idade da criança, queixa principal, contexto familiar, rotina ou dúvidas já respondidas.
+            - NÃO repitas perguntas já respondidas.
+            - Complementa ou aprofunda as orientações a cada nova mensagem.
+            - Se perderes o contexto (ex: idade não clara), pergunta naturalmente: "Só para eu te orientar melhor, você pode me lembrar a idade dele?".
+            - ENCERRAMENTO GRADUAL: Não finalizes de forma abrupta. Deixa espaço para continuidade: "Se quiser, pode me contar um pouco mais sobre como isso acontece no dia a dia."
 
-        function handleSendMessage() {
+            LIMITES RÍGIDOS:
+            - NÃO realizas diagnósticos.
+            - NÃO substituis avaliação fonoaudiológica.
+            - NÃO prescreves terapias ou técnicas clínicas individualizadas.
+
+            QUANDO A DÚVIDA FOR COMPLEXA OU CLÍNICA:
+            Se o usuário perguntar sobre Diagnósticos (TEA, TDL, TDAH, Apraxia), atrasos importantes, recusa alimentar severa, regressão de fala ou pedir conduta específica:
+            RESPONDE GENTILMENTE: "Essa é uma dúvida muito importante, mas para responder com responsabilidade é necessário conhecer a criança e a rotina dela. Para isso, o ideal é falar diretamente com a fonoaudióloga. Você pode entrar em contato pelo WhatsApp do site, agendar uma consulta de avaliação ou uma orientação parental, que ajuda bastante nesses casos."
+            
+            Responde sempre de forma acolhedora, humana e sem promessas de resultados.`;
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            // Adicionamos a pergunta atual ao histórico
+            chatHistory.push({ role: "user", parts: [{ text: userQuery }] });
+
+            const payload = {
+                contents: chatHistory,
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error('API Error');
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    
+                    if (text) {
+                        // Guardamos a resposta do modelo no histórico para a próxima volta
+                        chatHistory.push({ role: "model", parts: [{ text: text }] });
+                        
+                        const needsContact = text.includes("fonoaudióloga") || text.includes("WhatsApp") || text.includes("agendar") || text.includes("orientação parental");
+                        return { text, needsContact };
+                    }
+                } catch (e) {
+                    await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
+                }
+            }
+            return { text: "No momento não consigo conectar ao meu sistema. Por favor, use o WhatsApp para falar diretamente conosco.", needsContact: true };
+        }
+
+        async function handleSendMessage() {
             const text = chatInput.value.trim();
             if (!text) return;
+
             addMessage(text, 'user');
             chatInput.value = '';
-            setTimeout(() => {
-                const lower = text.toLowerCase();
-                if (lower.match(/(fala|atraso|palavra)/)) {
-                    addMessage("A estimulação da fala acontece nas pequenas rotinas. Narre as ações e dê tempo para a resposta.", 'bot', ["**Aguarde:** Espere 10s.", "**Expansão:** Se ele disser 'pão', diga 'Pão gostoso!'."]);
-                } else if (lower.match(/(comer|mastigar|sensibilidade)/)) {
-                    addMessage("Questões sensoriais pedem paciência. Tente brincar com os alimentos.", 'bot', ["**Dica:** Fazer caretas no espelho ajuda."], true);
-                } else if (lower.match(/(agendar|consulta|avaliação)/)) {
-                    addMessage("Podemos agendar uma avaliação detalhada para entender o caso.", 'bot', ["Atendimento presencial ou online."], true);
-                } else {
-                    addMessage("Olá! Sou o assistente da Fono Amanda. Como posso ajudar?", 'bot', ["Como estimular a **fala**?", "**Agendar** avaliação"]);
-                }
-            }, 1000);
+            
+            typingIndicator.classList.remove('hidden');
+            const result = await fetchGeminiResponse(text);
+            typingIndicator.classList.add('hidden');
+            
+            addMessage(result.text, 'bot', result.needsContact);
         }
+
+        function handleChatEnter(e) { if (e.key === 'Enter') handleSendMessage(); }
     </script>
 </body>
 </html>
