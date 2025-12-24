@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <title>Fono Amanda Elizabeth</title>
 
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,37 +12,22 @@
 
 <body class="h-screen bg-[#F4F1DE] font-sans overflow-hidden">
 
-<!-- ================== DADOS ================== -->
-<script>
-const PROFESSIONAL_INFO = {
-  name: "Amanda Elizabeth Gomes",
-  title: "Fonoaudióloga",
-  prefix: "Fono",
-  crfa: "CRFa 2-19715",
-  whatsapp: "5511960808313",
-  instagram: "amandaelizabethfono",
-  email: "amanda.elizabethgs@gmail.com",
-  photoUrl: "https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K"
-};
-</script>
+<div class="h-full flex flex-col md:flex-row">
 
-<!-- ================== APP ================== -->
-<div class="h-full flex flex-col md:flex-row p-0 md:p-6">
-
-  <!-- Botão Menu Mobile -->
+  <!-- BOTÃO MOBILE -->
   <button id="mobileMenuBtn"
-    class="md:hidden fixed top-4 right-4 z-[60] bg-[#606C38] text-white p-2 rounded-full shadow-lg">
+    class="md:hidden fixed top-4 right-4 z-50 bg-[#606C38] text-white p-2 rounded-full">
     <i data-lucide="menu"></i>
   </button>
 
-  <div class="flex-1 max-w-7xl mx-auto bg-white md:rounded-3xl shadow-2xl flex overflow-hidden border relative">
+  <div class="flex-1 max-w-7xl mx-auto bg-white md:rounded-3xl shadow-2xl flex overflow-hidden relative">
 
-    <!-- ================== SIDEBAR ================== -->
+    <!-- SIDEBAR -->
     <aside id="sidebar"
-      class="absolute md:relative z-50 w-full md:w-80 bg-[#606C38] text-white h-full flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0">
+      class="absolute md:relative z-40 w-full md:w-80 bg-[#606C38] text-white h-full flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0">
 
       <div class="p-8 bg-[#4d572d]">
-        <div class="w-20 h-20 mx-auto md:mx-0 border-2 border-[#E09F3E] rounded-full overflow-hidden mb-4">
+        <div class="w-20 h-20 border-2 border-[#E09F3E] rounded-full overflow-hidden mb-4">
           <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K"
                class="w-full h-full object-cover">
         </div>
@@ -53,81 +35,46 @@ const PROFESSIONAL_INFO = {
         <h1 class="font-serif text-xl font-bold">
           Fono<br>Amanda Elizabeth Gomes
         </h1>
-        <p class="text-[10px] opacity-70 uppercase tracking-widest">CRFa 2-19715</p>
+        <p class="text-xs opacity-70">CRFa 2-19715</p>
       </div>
 
-      <nav class="flex-1 p-4">
-        <ul class="space-y-2">
-          <li><button class="menu-btn w-full p-3 rounded-xl bg-[#E07A5F]" data-tab="home">Início</button></li>
-          <li><button class="menu-btn w-full p-3 rounded-xl" data-tab="about">Sobre</button></li>
-          <li><button class="menu-btn w-full p-3 rounded-xl" data-tab="chat">Assistente</button></li>
-          <li><button class="menu-btn w-full p-3 rounded-xl" data-tab="store">Loja</button></li>
-        </ul>
+      <nav class="flex-1 p-4 space-y-2">
+        <button class="menu-btn w-full p-3 rounded-xl bg-[#E07A5F]" data-tab="home">Início</button>
+        <button class="menu-btn w-full p-3 rounded-xl" data-tab="about">Sobre</button>
+        <button class="menu-btn w-full p-3 rounded-xl" data-tab="chat">Assistente</button>
+        <button class="menu-btn w-full p-3 rounded-xl" data-tab="store">Loja</button>
       </nav>
-
-      <div class="p-6 border-t border-white/10 flex gap-4 justify-center">
-        <a href="https://instagram.com/amandaelizabethfono" target="_blank"><i data-lucide="instagram"></i></a>
-        <a href="mailto:amanda.elizabethgs@gmail.com"><i data-lucide="mail"></i></a>
-        <a href="https://wa.me/5511960808313" target="_blank"><i data-lucide="message-circle"></i></a>
-      </div>
     </aside>
 
-    <!-- ================== CONTENT ================== -->
-    <main class="flex-1 bg-[#FAFAF5] overflow-hidden">
+    <!-- CONTEÚDO -->
+    <main class="flex-1 bg-[#FAFAF5] overflow-auto">
 
       <!-- HOME -->
-      <section id="home" class="tab flex flex-col items-center justify-center text-center p-12">
-        <div class="w-40 h-40 rounded-full border-4 border-[#E09F3E] overflow-hidden mb-6">
-          <img src="https://lh3.googleusercontent.com/d/1RGurpPnEQguarRCax2MeI9HdBPNFBl8K"
-               class="w-full h-full object-cover">
-        </div>
-
-        <h1 class="font-serif text-4xl text-[#606C38] font-bold mb-2">
-          Fono Amanda Elizabeth Gomes
-        </h1>
-
-        <p class="text-[#E07A5F] uppercase mb-6">
-          Fonoaudiologia Humanizada
-        </p>
-
+      <section id="home" class="tab h-full flex flex-col items-center justify-center text-center p-12">
+        <h1 class="text-4xl font-serif text-[#606C38] mb-4">Fono Amanda Elizabeth</h1>
+        <p class="text-[#E07A5F] mb-6">Fonoaudiologia Humanizada</p>
         <div class="flex gap-4">
-          <button onclick="openTab('chat')" class="bg-[#E07A5F] text-white px-6 py-3 rounded-xl">Assistente</button>
-          <button onclick="openTab('store')" class="bg-[#606C38] text-white px-6 py-3 rounded-xl">E-books</button>
+          <button class="nav-btn bg-[#E07A5F] text-white px-6 py-3 rounded-xl" data-tab="chat">Assistente</button>
+          <button class="nav-btn bg-[#606C38] text-white px-6 py-3 rounded-xl" data-tab="store">E-books</button>
         </div>
       </section>
 
       <!-- ABOUT -->
       <section id="about" class="tab hidden p-12">
-        <h2 class="font-serif text-3xl text-[#606C38] mb-6">Quem sou eu</h2>
-        <p class="text-gray-600">
-          Sou a Fono Amanda Elizabeth Gomes, especialista em desenvolvimento infantil,
-          TEA e linguagem. Atendimento humanizado e baseado em evidências.
-        </p>
+        <h2 class="text-3xl font-serif text-[#606C38] mb-4">Quem sou eu</h2>
+        <p>Especialista em desenvolvimento infantil, TEA e linguagem.</p>
       </section>
 
       <!-- CHAT -->
       <section id="chat" class="tab hidden h-full flex flex-col">
-        <div id="chatMessages" class="flex-1 p-6 overflow-y-auto"></div>
-
-        <div class="p-4 bg-white border-t flex gap-2">
-          <input
-            id="chatInput"
-            aria-label="Campo para digitar mensagem"
-            class="flex-1 bg-[#F4F1DE] p-3 rounded-xl"
-            placeholder="Tire sua dúvida..."
-          >
-          <button onclick="sendMessage()" class="bg-[#E07A5F] text-white px-4 rounded-xl">
-            <i data-lucide="send"></i>
-          </button>
-        </div>
+        <div class="flex-1 p-6">Assistente em construção 💬</div>
       </section>
 
       <!-- STORE -->
       <section id="store" class="tab hidden p-12">
-        <h2 class="font-serif text-3xl text-[#606C38] mb-6">Loja</h2>
-
-        <a href="https://pay.kiwify.com.br/8AJ1RUP" target="_blank"
-           class="block bg-[#606C38] text-white p-6 rounded-xl mb-4">
+        <a href="https://pay.kiwify.com.br/8AJ1RUP"
+           target="_blank"
+           class="block bg-[#606C38] text-white p-6 rounded-xl">
           E-book Férias com Conexão
         </a>
       </section>
@@ -136,60 +83,36 @@ const PROFESSIONAL_INFO = {
   </div>
 </div>
 
-<!-- ================== JS ================== -->
 <script>
 lucide.createIcons();
 
 const tabs = document.querySelectorAll('.tab');
-const buttons = document.querySelectorAll('.menu-btn');
+const buttons = document.querySelectorAll('[data-tab]');
 const sidebar = document.getElementById('sidebar');
 
-function openTab(id) {
+function navigate(tabId) {
   tabs.forEach(t => t.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
+  document.getElementById(tabId).classList.remove('hidden');
+
+  document.querySelectorAll('.menu-btn').forEach(b =>
+    b.classList.remove('bg-[#E07A5F]')
+  );
+
+  const activeBtn = document.querySelector(`.menu-btn[data-tab="${tabId}"]`);
+  if (activeBtn) activeBtn.classList.add('bg-[#E07A5F]');
+
+  if (window.innerWidth < 768) {
+    sidebar.classList.add('-translate-x-full');
+  }
 }
 
 buttons.forEach(btn => {
-  btn.onclick = () => {
-    buttons.forEach(b => b.classList.remove('bg-[#E07A5F]'));
-    btn.classList.add('bg-[#E07A5F]');
-    openTab(btn.dataset.tab);
-
-    if (window.innerWidth < 768) {
-      sidebar.classList.add('-translate-x-full');
-    }
-  };
+  btn.addEventListener('click', () => navigate(btn.dataset.tab));
 });
 
 document.getElementById('mobileMenuBtn').onclick = () => {
   sidebar.classList.toggle('-translate-x-full');
 };
-
-function sendMessage() {
-  const input = document.getElementById('chatInput');
-  if (!input.value.trim()) return;
-
-  const msg = document.createElement('div');
-  msg.className = "mb-4 text-right";
-  msg.innerHTML = `
-    <div class="inline-block bg-[#E07A5F] text-white p-3 rounded-xl">
-      ${input.value}
-    </div>`;
-  document.getElementById('chatMessages').appendChild(msg);
-
-  input.value = '';
-
-  setTimeout(() => {
-    const reply = document.createElement('div');
-    reply.className = "mb-4 text-left";
-    reply.innerHTML = `
-      <div class="inline-block bg-white border p-3 rounded-xl text-gray-700">
-        Obrigada pela sua mensagem 💛<br>
-        Se desejar, posso te orientar ou te encaminhar para o WhatsApp.
-      </div>`;
-    document.getElementById('chatMessages').appendChild(reply);
-  }, 700);
-}
 </script>
 
 </body>
